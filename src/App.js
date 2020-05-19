@@ -1,8 +1,8 @@
 import React from "react";
-import logo1 from "./images/logo1.svg";
-import logo2 from "./images/logo2.svg";
-import logo3 from "./images/logo3.svg";
-import logo4 from "./images/logo4.svg";
+import linkedinLogo from "./images/linkedinLogo.svg";
+import twitterLogo from "./images/twitterLogo.svg";
+import githubLogo from "./images/githubLogo.svg";
+import blogLogo from "./images/blogLogo.svg";
 import "./App.css";
 
 function App() {
@@ -22,20 +22,20 @@ function App() {
               <h3>Links</h3>
 
               <div class="Resume-linkedin">
-                <img src={logo1} />
-                <a href="#">LinkedIn</a>
+                <img src={linkedinLogo} alt="LinkedIn logo" />
+                <a href="#">LinkedIn/username</a>
               </div>
               <div class="Resume-twitter">
-                <img src={logo2} />
-                <a href="#">Twitter</a>
+                <img src={twitterLogo} alt="Twitter logo" />
+                <a href="#">Twitter/@user-handle</a>
               </div>
               <div class="Resume-github">
-                <img src={logo3} />
-                <a href="#">Github</a>
+                <img src={githubLogo} alt="Github logo" />
+                <a href="#">Github/username</a>
               </div>
               <div class="Resume-blog">
-                <img src={logo4} />
-                <a href="#">Blog</a>
+                <img src={blogLogo} alt="Blog logo" />
+                <a href="#">Blog/blog-name</a>
               </div>
             </div>
           </div>
@@ -177,10 +177,10 @@ function App() {
               <p className="Resume-social-social-title">SOCIAL</p>
               <ul className="Resume-social-social-content">
                 <li>
-                  <a href="">LinkendIn/username</a>
+                  <a href="#">LinkendIn/username</a>
                 </li>
                 <li>
-                  <a href="">Twitter/username</a>
+                  <a href="#">Twitter/username</a>
                 </li>
               </ul>
             </div>
