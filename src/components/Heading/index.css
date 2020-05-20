@@ -1,0 +1,24 @@
+.heading {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.heading:before {
+  content: "";
+  width: 55px;
+  height: 8px;
+  left: 0;
+  top: 25px;
+  position: absolute;
+  background: #7abcac;
+  z-index: 9;
+}
+.heading:after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  left: 0;
+  top: 27px;
+  position: absolute;
+  background: lightgrey;
+}

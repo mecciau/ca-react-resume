@@ -1,0 +1,12 @@
+.Resume-exp-header p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.Resume-exp-header {
+  text-align: center;
+}
+
+.exp-job-position {
+  font-weight: bold;
+  text-transform: uppercase;
+}

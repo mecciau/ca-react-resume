@@ -1,0 +1,19 @@
+.sideline {
+  border-left: 3px solid lightgray;
+  padding-left: 15px;
+}
+.sideline:first-child {
+  border-left: none;
+}
+
+.Resume-col-4 {
+  width: 33.3%;
+  padding-right: 25px;
+}
+.Resume-col-4:last-child {
+  padding-right: 0px;
+}
+
+.Resume-col-8 {
+  width: 66.6%;
+}

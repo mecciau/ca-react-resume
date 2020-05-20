@@ -1,0 +1,15 @@
+.Resume-contact-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  margin: 15px 50px;
+}
+.Resume-contact-content {
+  text-align: center;
+}
+
+.Resume-contact-content ul {
+  list-style-type: none;
+}
