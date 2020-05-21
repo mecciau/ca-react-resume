@@ -11,110 +11,85 @@ import twitterLogo from "../../images/twitterLogo.svg";
 import githubLogo from "../../images/githubLogo.svg";
 import blogLogo from "../../images/blogLogo.svg";
 
-const Main = () => {
+const Main = ({ data }) => {
   return (
     <div className="Resume-content">
       <div className="Resume-row">
         <Column title="Links" columnClass="Resume-col-4">
           <Social
             logo={linkedinLogo}
-            text={"LinkedIn/username"}
+            text={`LinkedIn/${data.links.linkedIn}`}
             altText={"LinkedIn logo"}
           />
           <Social
             logo={twitterLogo}
-            text={"Twitter/@user-handle"}
+            text={`Twitter/@${data.links.twitter}`}
             altText={"Twitter logo"}
           />
           <Social
             logo={githubLogo}
-            text={"LinkedIn/username"}
+            text={`Github/${data.links.github}`}
             altText={"Github logo"}
           />
           <Social
             logo={blogLogo}
-            text={"Blog/blog-name"}
+            text={`Blog/${data.links.blog}`}
             altText={"Blog logo"}
           />
         </Column>
-        <Column title="About Me" columnClass="Resume-col-8">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+        <Column title={data.aboutMe.title} columnClass="Resume-col-8">
+          <p>{data.aboutMe.text}</p>
         </Column>
       </div>
 
       <div className="Resume-row">
-        <Column title="Education" columnClass="Resume-col-4">
-          <Education
-            schoolName="School Name"
-            year="2009-2013"
-            degree="Degree"
-          />
-          <hr class="education-hr" />
-          <Education
-            schoolName="School Name"
-            year="2009-2013"
-            degree="Degree"
-          />
+        <Column title={data.education.title} columnClass="Resume-col-4">
+          {data.education.schools.map((school, index) => {
+            return (
+              <React.Fragment key={index}>
+                <Education
+                  schoolName={school.schoolName}
+                  year={school.year}
+                  degree={school.degree}
+                />
+                {data.education.schools.length !== index + 1 && (
+                  <hr className="education-hr" />
+                )}
+              </React.Fragment>
+            );
+          })}
         </Column>
-        <Column title="Personal Skills" columnClass="Resume-col-4">
-          <Pill title="TEAMWORK" color="green" />
-          <Pill title="COMMUNICATION" color="yellow" />
-          <Pill title="ORGANIZATION" color="red" />
+        <Column title={data.personalSkills.title} columnClass="Resume-col-4">
+          {data.personalSkills.skills.map((skill, index) => {
+            return <Pill title={skill.name} level={skill.level} key={index} />;
+          })}
         </Column>
-        <Column title="Technical Skills" columnClass="Resume-col-4">
-          <Pill title="HTML" color="green" />
-          <Pill title="CSS/SCSS" color="green" />
-          <Pill title="JAVASCRIPT" color="yellow" />
-          <Pill title="REACT.JS" color="yellow" />
+        <Column title={data.technicalSkills.title} columnClass="Resume-col-4">
+          {data.technicalSkills.skills.map((skill, index) => {
+            return <Pill title={skill.name} level={skill.level} key={index} />;
+          })}
         </Column>
       </div>
       <div className="Resume-row">
         <Column title="Work Experience" columnClass="Resume-col-12">
           <div className="Resume-row">
-            <Column columnClass="Resume-col-4" sideLine="sideline">
-              <Work
-                position="Job Position"
-                company="Company"
-                year="2018 - present"
-                description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                dolores ipsum minima delectus? Doloribus deleniti quos sint
-                autem ratione expedita odit repellat provident laboriosam,
-                molestiae quia modi quidem, reiciendis fuga?"
-                list={["Lorem ipsum dolor sit", "Earum dolores ipsum"]}
-              />
-            </Column>
-            <Column columnClass="Resume-col-4" sideLine="sideline">
-              <Work
-                position="Job Position"
-                company="Company"
-                year="2018 - present"
-                description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                dolores ipsum minima delectus? Doloribus deleniti quos sint
-                autem ratione expedita odit repellat provident laboriosam,
-                molestiae quia modi quidem, reiciendis fuga?"
-                list={["Lorem ipsum dolor sit", "Earum dolores ipsum"]}
-              />
-            </Column>
-            <Column columnClass="Resume-col-4" sideLine="sideline">
-              <Work
-                position="Job Position"
-                company="Company"
-                year="2018 - present"
-                description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-                dolores ipsum minima delectus? Doloribus deleniti quos sint
-                autem ratione expedita odit repellat provident laboriosam,
-                molestiae quia modi quidem, reiciendis fuga?"
-                list={["Lorem ipsum dolor sit", "Earum dolores ipsum"]}
-              />
-            </Column>
+            {data.workExperience.experience.map((exp, index) => {
+              return (
+                <Column
+                  columnClass="Resume-col-4"
+                  sideLine="sideline"
+                  key={index}
+                >
+                  <Work
+                    position={exp.jobPosition}
+                    company={exp.company}
+                    year={exp.duration}
+                    description={exp.description}
+                    list={exp.list}
+                  />
+                </Column>
+              );
+            })}
           </div>
         </Column>
       </div>

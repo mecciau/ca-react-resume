@@ -4,15 +4,19 @@ import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
+import data from "./data.json";
+import LangSelect from "./components/LangSelect";
 
-function App() {
+const App = () => {
+  const [lang, setLang] = React.useState("en");
   return (
     <div className="Resume">
-      <Header name="Sophie Alpert" title="programmer" />
-      <Main />
-      <Footer />
+      <LangSelect setLang={setLang} />
+      <Header name={data[lang].name} title={data[lang].title} />
+      <Main data={data[lang]} />
+      <Footer data={data[lang]} />
     </div>
   );
-}
+};
 
 export default App;

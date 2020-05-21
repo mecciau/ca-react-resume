@@ -1,0 +1,11 @@
+.lang-select {
+  text-align: right;
+  width: 100%;
+  position: relative;
+}
+
+#lang-select {
+  position: absolute;
+  right: 0;
+  top: -20px;
+}

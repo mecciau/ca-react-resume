@@ -12,7 +12,7 @@ const Work = ({ position, company, year, description, list }) => {
       <p className="exp-description">{description}</p>
       <ul className="exp-list">
         {list.map((l) => (
-          <li>{l}</li>
+          <li key={l}>{l}</li>
         ))}
       </ul>
     </React.Fragment>

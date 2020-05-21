@@ -3,7 +3,7 @@ import "./index.css";
 
 const Social = ({ logo, text, altText }) => {
   return (
-    <div class="Resume-social">
+    <div className="Resume-social">
       <img src={logo} alt={altText} />
       <a href="#">{text}</a>
     </div>
